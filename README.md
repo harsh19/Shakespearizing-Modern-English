@@ -29,7 +29,11 @@ For inference: </br>
 
 Baseline (Dictionary):
 - Change working directory to code/baselines/
-- TODO </br>
+- python dictionary_baseline.py ../../data/shakespeare.dict ../../data/test.modern.nltktok ../../data/test.dictBaseline
+- The test.dictBaseline file contains the output (Shakespearean) of the dictionary baseline.
+- To evaluate BLEU: 
+  - Change working directory to code/main/
+  - perl multi-bleu.perl -lc ../../data/test.original.nltktok < ../../data/test.dictBaseline
 
 Baseline (statistical MT)
 - Please follow instructions in "Wei Xu, Alan Ritter, William B Dolan, Ralph Grish- man, and Colin Cherry. 2012. Paraphrasing for style. In 24th International Conference on Computational Linguistics, COLING 2012."
