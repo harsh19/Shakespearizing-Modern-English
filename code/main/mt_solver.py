@@ -237,7 +237,7 @@ class Solver:
 				for j in range(gap):
 					encoder_inputs_cur = np.vstack( (encoder_inputs_cur,encoder_inputs[0]) )
 			if inference_type=="greedy":
-				decoder_outputs_inference_cur, alpha_cur = self.runInference(config, encoder_inputs_cur, None, reverse_vocab, sess=sess, print_all=False)
+				decoder_outputs_inference_cur, alpha_cur = self.runInference(config, encoder_inputs_cur, None, reverse_vocab, sess=sess, print_all=print_progress, print_gt=print_progress)
 				decoder_outputs_inference.extend( decoder_outputs_inference_cur[:lim] )
                                 alpha.extend(alpha_cur[:lim])
 			else:

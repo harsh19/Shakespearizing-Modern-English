@@ -118,36 +118,17 @@ def main(saved_model_path, inference_type="greedy"):
 
 	sequences_input = pad_sequences(all_txt_indexed, maxlen=config.max_input_seq_length, padding='pre', truncating='post')
 
-	decoder_outputs_inference, _ = rnn_model.solveAll(params, sequences_input, None, preprocessing.idx_to_word, inference_type=inference_type)
+	decoder_outputs_inference, _ = rnn_model.solveAll(params, sequences_input, None, preprocessing.idx_to_word, inference_type=inference_type, print_progress=False)
 	print decoder_outputs_inference      
+	tmp_txt = preprocessing.fromIdxSeqToVocabSeq(decoder_outputs_inference[0])
+	txt = []
+	for i,word in enumerate(tmp_txt):
+		if word=="sentend":
+			break
+		txt.append(word)
+	print ' '.join(txt)
 	return
-
-	#val
-	data = pickle.load(open(data_src + "data.obj","r") )
-	val = data['valid']
-	val_encoder_inputs, val_decoder_inputs, val_decoder_outputs, val_decoder_outputs_matching_inputs = val
-	#print "val_encoder_inputs = ",val_encoder_inputs
-	if len(val_decoder_outputs.shape)==3:
-		val_decoder_outputs=np.reshape(val_decoder_outputs, (val_decoder_outputs.shape[0], val_decoder_outputs.shape[1]))
-	decoder_outputs_inference, decoder_ground_truth_outputs = rnn_model.solveAll(params, val_encoder_inputs, val_decoder_outputs, preprocessing.idx_to_word, inference_type=inference_type)        			   
-	validOutFile_name = saved_model_path+".valid.output"
-	original_data_path = data_src + "valid.original.nltktok"
-	BLEUOutputFile_path = saved_model_path + ".valid.BLEU"
-	utilities.getBlue(validOutFile_name, original_data_path, BLEUOutputFile_path, decoder_outputs_inference, decoder_ground_truth_outputs, preprocessing)
-
-	'''
-
-	#test
-	test_encoder_inputs, test_decoder_inputs, test_decoder_outputs, test_decoder_outputs_matching_inputs = test
-	if len(test_decoder_outputs.shape)==3:
-		test_decoder_outputs=np.reshape(test_decoder_outputs, (test_decoder_outputs.shape[0], test_decoder_outputs.shape[1]))
-	decoder_outputs_inference, decoder_ground_truth_outputs = rnn_model.solveAll(params, test_encoder_inputs, test_decoder_outputs, preprocessing.idx_to_word, inference_type=inference_type)
-	validOutFile_name = saved_model_path+".test.output"
-	original_data_path = data_src + "test.original.nltktok"
-	BLEUOutputFile_path = saved_model_path + ".test.BLEU"
-	utilities.getBlue(validOutFile_name, original_data_path, BLEUOutputFile_path, decoder_outputs_inference, decoder_ground_truth_outputs, preprocessing)
-
-	'''
+	
 if __name__ == "__main__":
-	main("./tmp/test5.ckpt")
+	main("./tmp/pointer7.ckpt")
 
