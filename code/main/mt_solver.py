@@ -35,7 +35,8 @@ class Solver:
 			optimizer_typ = config['optimizer_typ']
 		self.optimizer_typ = optimizer_typ
 		learning_rate= 0.001 #0.001
-		print "optimizer_typ, learning_rate= ", optimizer_typ, learning_rate
+		if mode=="train":
+			print "optimizer_typ, learning_rate= ", optimizer_typ, learning_rate
 
 		if mode=='train':
 			#########################
@@ -175,12 +176,7 @@ class Solver:
 
 	###################################################################################
 
-	def runInference(self, config, encoder_inputs, decoder_ground_truth_outputs, reverse_vocab, sess=None, print_all=True, print_gt=True): # sampling
-		if sess==None:
-	  		sess = tf.Session()
-	  		saver = tf.train.Saver()
-			saved_model_path = config['saved_model_path']
-	  		saver.restore(sess,  saved_model_path ) #"./tmp/model39.ckpt")
+	def runInference(self, config, encoder_inputs, decoder_ground_truth_outputs, reverse_vocab, sess, print_all=True, print_gt=True): # sampling
 		typ = "greedy" #config['inference_type']
 		model_obj = self.model_obj
 		feed_dct={model_obj.token_lookup_sequences_placeholder_inference:encoder_inputs}
@@ -215,8 +211,16 @@ class Solver:
 	###################################################################################
 
 	def solveAll(self, config, encoder_inputs, decoder_ground_truth_outputs, reverse_vocab, sess=None, print_progress=True, inference_type="greedy"): # sampling
-		print " SolveAll ...... ============================================================"
 		
+		if print_progress:
+			print " SolveAll ...... ============================================================"
+
+		if sess==None:
+	  		sess = tf.Session()
+	  		saver = tf.train.Saver()
+			saved_model_path = config['saved_model_path']
+	  		saver.restore(sess,  saved_model_path ) #"./tmp/model39.ckpt")
+
 		if inference_type=="greedy":
 			batch_size = config['batch_size']
 		else:# beam

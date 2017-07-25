@@ -121,3 +121,23 @@ def getBlue(validOutFile_name, original_data_path, BLEUOutputFile_path, decoder_
 	BLEUOutputFile=open(BLEUOutputFile_path,"w")
 	BLEUOutputFile.write(BLEUOutput)
 	BLEUOutputFile.close()
+
+
+
+#############################################################
+def preprocessText(list_of_sentences, preprocessing_obj):
+
+	preprocessing = preprocessing_obj
+	all_txt_tokenized = [ txt.split() for txt in list_of_sentences] #TO DO: nltk tokenization
+	all_txt_indexed = [ ]
+	for txt in all_txt_tokenized:
+		tmp = []
+		tmp.append(preprocessing.word_to_idx[preprocessing.sent_start])
+		for w in txt:
+			if w not in preprocessing.word_to_idx:
+				w = preprocessing.unknown_word
+			tmp.append( preprocessing.word_to_idx[w] )
+		tmp.append(preprocessing.word_to_idx[preprocessing.sent_end])
+		all_txt_indexed.append(tmp)
+
+	return all_txt_indexed
