@@ -194,13 +194,14 @@ class Solver:
 					        if val==2: break # sentend. TO DO: load this value from config
 						ret+=( " " + reverse_vocab[val] )
 					#print "decoder_ground_truth_outputs[i] = ",decoder_ground_truth_outputs[i]
-					if print_gt:
-						gt = [ reverse_vocab[j] for j in decoder_ground_truth_outputs[i] if reverse_vocab[j]!="padword"]
-						print "GT: ", gt
-					print "prediction: ",ret
-					print ""
-					if i>20:
-						break
+                                        if i<len(decoder_ground_truth_outputs):
+                                                if print_gt:
+					                gt = [ reverse_vocab[j] for j in decoder_ground_truth_outputs[i] if reverse_vocab[j]!="padword"]
+					                print "GT: ", gt
+					        print "prediction: ",ret
+					        print ""
+					        if i>20:
+					                break
 			return decoder_outputs_inference, alpha_inference
 		elif typ=="beam":
 			pass
@@ -213,7 +214,7 @@ class Solver:
 	def solveAll(self, config, encoder_inputs, decoder_ground_truth_outputs, reverse_vocab, sess=None, print_progress=True, inference_type="greedy"): # sampling
 		
 		if print_progress:
-			print " SolveAll ...... ============================================================"
+			print " SolveAll ...... ============================================================" 
 
 		if sess==None:
 	  		sess = tf.Session()
@@ -235,13 +236,14 @@ class Solver:
 			if print_progress:
 				print "i= ",i
 			encoder_inputs_cur = encoder_inputs[i*batch_size:(i+1)*batch_size]
+                        decoder_ground_truth_cur = decoder_ground_truth_outputs[i*batch_size:(i+1)*batch_size]
 			lim = len(encoder_inputs_cur)
 			if len(encoder_inputs_cur)<batch_size:
 				gap = batch_size - len(encoder_inputs_cur)
 				for j in range(gap):
 					encoder_inputs_cur = np.vstack( (encoder_inputs_cur,encoder_inputs[0]) )
 			if inference_type=="greedy":
-				decoder_outputs_inference_cur, alpha_cur = self.runInference(config, encoder_inputs_cur, None, reverse_vocab, sess=sess, print_all=print_progress, print_gt=print_progress)
+				decoder_outputs_inference_cur, alpha_cur = self.runInference(config, encoder_inputs_cur, decoder_ground_truth_cur, reverse_vocab, sess=sess, print_all=print_progress, print_gt=print_progress)
 				decoder_outputs_inference.extend( decoder_outputs_inference_cur[:lim] )
                                 alpha.extend(alpha_cur[:lim])
 			else:
