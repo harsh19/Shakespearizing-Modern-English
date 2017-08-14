@@ -1,5 +1,5 @@
 # post processing step to replace unks with input word of highest attention
-
+# CUDA_VISIBLE_DEVICES="" python post_process.py <checkpoint.test/valid> postProcess
 import sys
 import pickle
 import numpy as np
@@ -20,7 +20,7 @@ def padUp(line,finalLength,paddingMethod):
     return words
 
 
-inputFile=open("../data/test.modern.nltktok")
+inputFile=open("../../data/test.modern.nltktok")
 hypFile=open(sys.argv[1]+".output")
 alpha=pickle.load(open(sys.argv[1]+".alpha","rb"))
 mode=sys.argv[2]

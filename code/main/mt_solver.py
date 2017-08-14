@@ -248,6 +248,11 @@ class Solver:
                                 alpha.extend(alpha_cur[:lim])
 			else:
 				pass
+                
+                #Printing out attention matrix - Required for UNK replacement during post-processing
+                import pickle
+                pickle.dump(alpha,open("alpha.p","wb"))
+                print "Dumped alphas"
 
 		return decoder_outputs_inference, decoder_ground_truth_outputs
 
