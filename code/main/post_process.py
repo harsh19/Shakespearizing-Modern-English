@@ -1,5 +1,10 @@
 # post processing step to replace unks with input word of highest attention
 # CUDA_VISIBLE_DEVICES="" python post_process.py <checkpoint.test/valid> postProcess
+# To get attention matrix for a specific instance in printed form (output element* input element)
+# CUDA_VISIBLE_DEVICES="" python post_process.py <checkpoint.test/valid> write <exampleId>
+# Important Note: This will create a file logs/attentionDump_S2S_<exampleId>.txt
+# Important Note: Before running post processing, attention file should be available. This is generated during inference as alpha.p. Copy it to to <checkpoint.test>.alpha in /tmp
+
 import sys
 import pickle
 import numpy as np
@@ -79,8 +84,8 @@ for i in range(len(inputLines)):
         inpLine=inputLines[i]
         print hypLine
         print inpLine
-        attentionList=list((alpha[i])[9])
-        attentionList=[inputLines[i][k] if x>0.1 else "<b>" for k,x in enumerate(attentionList)]
+        #attentionList=list((alpha[i])[9])
+        #attentionList=[inputLines[i][k] if x>0.1 else "<b>" for k,x in enumerate(attentionList)]
         attentionMatrix=alpha[i]
         inputStartIndex=-1
         for x in inpLine:

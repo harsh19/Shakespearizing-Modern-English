@@ -27,6 +27,14 @@ For inference: </br>
 - Change working directory to code/main/
 - python mt_main.py inference tmp/seq2seq5.ckpt greedy </br>
 
+Post-Processing:
+There are two post-processing actions which one may be interested in performing:
+1. Visualizing attention matrices
+2. Replacing UNKS in hypothesis with their highest-aligned (attention) input tokens.
+For both of these actions, refer to the running instructions in code/main/post_process.py (comments commencing the file). The file can be run in two modes, to perform 1 (write) and 2 (postProcess) respectively*.
+*Not elaborated on here to preserve conciseness and clarity.
+
+
 Baseline (Dictionary):
 - Change working directory to code/baselines/
 - python dictionary_baseline.py ../../data/shakespeare.dict ../../data/test.modern.nltktok ../../data/test.dictBaseline
