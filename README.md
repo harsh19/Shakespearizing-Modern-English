@@ -9,7 +9,7 @@ Instructions to run: </br>
 Preprocessing: 
 - Change working directory to code/main/
 - Create a new directory named 'tmp'
-- python mt_main.py preprocessing </br>
+- `python mt_main.py preprocessing` </br>
 
 Pointer model: 
 - First run pre-processing
