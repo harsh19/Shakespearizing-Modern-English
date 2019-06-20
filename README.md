@@ -9,7 +9,8 @@ Instructions to run: </br>
 Preprocessing: 
 - Change working directory to code/main/
 - Create a new directory named 'tmp'
-- `python mt_main.py preprocessing` </br>
+- Run: </br>
+`python mt_main.py preprocessing` </br>
 
 Pointer model: 
 - First run pre-processing
@@ -22,10 +23,12 @@ For inference: </br>
 Normal seq2seq model: 
 - First run pre-processing
 - Change working directory to code/main/
-- `python mt_main.py train 10 seq2seq` </br>
+- Run: </br>
+`python mt_main.py train 10 seq2seq` </br>
 For inference: </br>
 - Change working directory to code/main/
-- `python mt_main.py inference tmp/seq2seq5.ckpt greedy` </br>
+- Run: </br>
+`python mt_main.py inference tmp/seq2seq5.ckpt greedy` </br>
 
 Post-Processing:
 There are two post-processing actions which one may be interested in performing:
@@ -42,7 +45,8 @@ Baseline (Dictionary):
 - The test.dictBaseline file contains the output (Shakespearean) of the dictionary baseline.
 - To evaluate BLEU: 
   - Change working directory to code/main/
-  - Run `perl multi-bleu.perl -lc ../../data/test.original.nltktok < ../../data/test.dictBaseline`
+  - Run: </br>
+  `perl multi-bleu.perl -lc ../../data/test.original.nltktok < ../../data/test.dictBaseline`
 
 Baseline (statistical MT)
 - Please follow instructions in "Wei Xu, Alan Ritter, William B Dolan, Ralph Grish- man, and Colin Cherry. 2012. Paraphrasing for style. In 24th International Conference on Computational Linguistics, COLING 2012."
