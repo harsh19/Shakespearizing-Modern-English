@@ -1,6 +1,8 @@
 # Shakespearizing-Modern-English
 Code for "Jhamtani H., Gangal V., Hovy E. and Nyberg E. Shakespearizing Modern Language Using Copy-Enriched Sequence to Sequence Models"  Workshop on Stylistic Variation, EMNLP 2017
 
+Link to paper: https://arxiv.org/abs/1707.01161
+
 ### Requirements
 - Python 2.7
 - Tensorflow 1.1.0
