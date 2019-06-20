@@ -1,7 +1,7 @@
 # Shakespearizing-Modern-English
 Code for "Jhamtani H., Gangal V., Hovy E. and Nyberg E. Shakespearizing Modern Language Using Copy-Enriched Sequence to Sequence Models"  Workshop on Stylistic Variation, EMNLP 2017
 
-Code has been tested with Tensorflow version 1.1.0 and Python2.7
+Code has been tested with Tensorflow version 1.1.0 and Python 2.7
 - If you use this code or the processed data, please consider citing Jhamtani H., Gangal V., Hovy E. and Nyberg E. Shakespearizing Modern Language Using Copy-Enriched Sequence to Sequence Models"  Workshop on Stylistic Variation, EMNLP 2017
 - If you use the data, please consder citing "Wei Xu, Alan Ritter, William B Dolan, Ralph Grish- man, and Colin Cherry. 2012. Paraphrasing for style. In 24th International Conference on Computational Linguistics, COLING 2012."
 
@@ -37,7 +37,8 @@ For both of these actions, refer to the running instructions in code/main/post_p
 
 Baseline (Dictionary):
 - Change working directory to code/baselines/
-- `python dictionary_baseline.py ../../data/shakespeare.dict ../../data/test.modern.nltktok ../../data/test.dictBaseline`
+- Run: </br>
+`python dictionary_baseline.py ../../data/shakespeare.dict ../../data/test.modern.nltktok ../../data/test.dictBaseline`
 - The test.dictBaseline file contains the output (Shakespearean) of the dictionary baseline.
 - To evaluate BLEU: 
   - Change working directory to code/main/
