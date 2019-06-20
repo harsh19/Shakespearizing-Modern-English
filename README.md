@@ -14,18 +14,18 @@ Preprocessing:
 Pointer model: 
 - First run pre-processing
 - Change working directory to code/main/
-- python mt_main.py train 10 pointer_model </br>
+- `python mt_main.py train 10 pointer_model` </br>
 For inference: </br>
 - Change working directory to code/main/
-- python mt_main.py inference tmp/pointer_model7.ckpt greedy </br>
+- `python mt_main.py inference tmp/pointer_model7.ckpt greedy` </br>
 
 Normal seq2seq model: 
 - First run pre-processing
 - Change working directory to code/main/
-- python mt_main.py train 10 seq2seq </br>
+- `python mt_main.py train 10 seq2seq` </br>
 For inference: </br>
 - Change working directory to code/main/
-- python mt_main.py inference tmp/seq2seq5.ckpt greedy </br>
+- `python mt_main.py inference tmp/seq2seq5.ckpt greedy` </br>
 
 Post-Processing:
 There are two post-processing actions which one may be interested in performing:
@@ -37,11 +37,11 @@ For both of these actions, refer to the running instructions in code/main/post_p
 
 Baseline (Dictionary):
 - Change working directory to code/baselines/
-- python dictionary_baseline.py ../../data/shakespeare.dict ../../data/test.modern.nltktok ../../data/test.dictBaseline
+- `python dictionary_baseline.py ../../data/shakespeare.dict ../../data/test.modern.nltktok ../../data/test.dictBaseline`
 - The test.dictBaseline file contains the output (Shakespearean) of the dictionary baseline.
 - To evaluate BLEU: 
   - Change working directory to code/main/
-  - perl multi-bleu.perl -lc ../../data/test.original.nltktok < ../../data/test.dictBaseline
+  - Run `perl multi-bleu.perl -lc ../../data/test.original.nltktok < ../../data/test.dictBaseline`
 
 Baseline (statistical MT)
 - Please follow instructions in "Wei Xu, Alan Ritter, William B Dolan, Ralph Grish- man, and Colin Cherry. 2012. Paraphrasing for style. In 24th International Conference on Computational Linguistics, COLING 2012."
