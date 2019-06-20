@@ -2,7 +2,8 @@
 Code for "Jhamtani H., Gangal V., Hovy E. and Nyberg E. Shakespearizing Modern Language Using Copy-Enriched Sequence to Sequence Models"  Workshop on Stylistic Variation, EMNLP 2017
 
 ### Requirements
-Code has been tested with Tensorflow version 1.1.0 and Python 2.7
+- Python 2.7
+- Tensorflow 1.1.0
 
 ### Instructions to run:
 
