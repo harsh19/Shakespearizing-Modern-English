@@ -38,7 +38,8 @@ There are two post-processing actions which one may be interested in performing:
 1. Visualizing attention matrices
 2. Replacing UNKS in hypothesis with their highest-aligned (attention) input tokens.
 For both of these actions, refer to the running instructions in code/main/post_process.py (comments commencing the file). The file can be run in two modes, to perform 1 (write) and 2 (postProcess) respectively*.
-*Not elaborated on here to preserve conciseness and clarity.
+*Not elaborated on here to preserve conciseness and clarity. </br>
+Note that the path to test file is hard-coded in the post_process.py file, so to try with a new file,one will have to make corresponding changes.
 
 
 #### Baseline (Dictionary):
