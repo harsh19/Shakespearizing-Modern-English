@@ -8,7 +8,7 @@ do_vocab_pruning = True
 max_vocab_size = 12000
 
 # Pointer or seq2seq
-use_pointer=True 
+use_pointer=False 
 
 # model config
 lstm_cell_size=192
