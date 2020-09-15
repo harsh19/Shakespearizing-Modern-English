@@ -24,14 +24,7 @@ For inference: </br>
 - `python mt_main.py inference tmp/pointer_model7.ckpt greedy` </br>
 
 #### Normal seq2seq model: 
-- First run pre-processing
-- Change working directory to code/main/
-- Run: </br>
-`python mt_main.py train 10 seq2seq` </br>
-For inference: </br>
-- Change working directory to code/main/
-- Run: </br>
-`python mt_main.py inference tmp/seq2seq5.ckpt greedy` </br>
+- Look at seq2seq branch of the repo
 
 #### Post-Processing:
 There are two post-processing actions which one may be interested in performing:
