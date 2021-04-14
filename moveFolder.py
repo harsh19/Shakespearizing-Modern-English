@@ -9,6 +9,8 @@ def moveFileIntoDir(expression,directory):
     arr =os.listdir(".")
     for x in arr:
         if expression in  x:
-            shutil(x,directory)
+            shutil.move(x,directory)
 def moveTrainingCSV(expression,directory):
     moveFileIntoDir(".log",directory)
+moveFileIntoDir("epoch","./models")
+
