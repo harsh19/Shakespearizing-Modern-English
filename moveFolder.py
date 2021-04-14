@@ -1,14 +1,14 @@
-##this will move all the model folder into a direcotry called models
+##this will move all the model folder into a directory called models
 #import 
 import os
 import shutil
 def printCurretnDir():
     print(os.listdir("."))
 
-def moveFileIntoDir(expression,direcotry):
+def moveFileIntoDir(expression,directory):
     arr =os.listdir(".")
     for x in arr:
         if expression in  x:
-            shutil.move(x,direcotry)
-
-moveFileIntoDir("epoch","./models")
+            shutil(x,directory)
+def moveTrainingCSV(expression,directory):
+    moveFileIntoDir(".log",directory)

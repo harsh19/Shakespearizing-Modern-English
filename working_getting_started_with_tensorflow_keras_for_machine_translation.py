@@ -15,7 +15,9 @@ Original file is located at
 import os
 import tensorflow as tf
 import datetime
-
+from tensorflow.keras.callbacks import TensorBoard
+import time
+NAME =""
 
 """# Data"""
 
@@ -72,7 +74,7 @@ def load_data(modern, original, source_vocabs, target_vocabs):
     original = tf.data.TextLineDataset(original)
 
     # batching
-    batch_size = 64 # multiple of 2: 2, 4, 8, 16, 32, 64
+    batch_size = 256 # multiple of 2: 2, 4, 8, 16, 32, 64
     modern = modern.batch(batch_size)
     original = original.batch(batch_size)
 
@@ -177,7 +179,7 @@ print(model.summary())
 """Naming the Model"""
 
 def name_model(epochs,type_of_model,learning_rate,loss_function, loss_value, val_value):
-    return f' model is {type_of_model} the epochs {epochs}  learning_rate{learning_rate} ' \
+    return f' model is {type_of_model} the epochs {epochs}  learning_rate {learning_rate} ' \
            f'lost function is {loss_function}  model loss is {loss_value}  model validation loss  {val_value}'
 
 """# Hyperparameters"""
@@ -192,11 +194,14 @@ model.compile(optimizer = optimizer, loss = loss, metrics = metrics)
 
 """
 from tensorflow import keras
-from tensorflow.keras.callbacks import Callback, History
+from tensorflow.keras.callbacks import Callback, History, CSVLogger
 history = History()
 logs = Callback()
+csv_logger = CSVLogger('training.log')
+tensorboard  = TensorBoard(log_dir="logs/{}".format(NAME))
 epochs = 1
-model.fit(train_dataset, validation_data = val_dataset, epochs = epochs, verbose = 1, callbacks=[history])
+model.fit(train_dataset, validation_data = val_dataset, epochs = epochs, verbose = 1, callbacks=[history,csv_logger,tensorboard])
+
 
 """## Save model"""
 
@@ -209,11 +214,14 @@ model_validation_loss = history.history['val_loss'][size-1]
 model_validation_loss_formated = format(model_validation_loss,".5")
 name_of_model = name_model(epochs,type_of_model,learning_rate,loss_function,model_loss_formated,model_validation_loss_formated)
 name_of_model_zip = name_of_model+".zip"
+NAME = NAME.format(datetime.datetime.now())
 location_of_folder = "/model/"
 model.save(location_of_folder+name_of_model)
+## move the training log csv into the model save directory
 
 import os
 import zipfile
+from tensorflow.python.keras.callbacks import CSVLogger
 def zipdir(path, ziph):
     # ziph is zipfile handle
     for root, dirs, files in os.walk(path):
