@@ -246,11 +246,3 @@ zipf.close()
 '''model = tf.keras.load_model(path)
 model.predict(input)'''
 
-"""# History"""
-print(history)
-print(type(history))
-dir(history.history.keys())
-print(history.history.keys())
-print(history.history['loss'])
-print(history.history['loss'][size-1])
-
