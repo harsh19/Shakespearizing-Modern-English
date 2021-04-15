@@ -17,6 +17,7 @@ import tensorflow as tf
 import datetime
 from tensorflow.keras.callbacks import TensorBoard
 import time
+import Constant
 NAME =""
 
 """# Data"""
@@ -74,7 +75,7 @@ def load_data(modern, original, source_vocabs, target_vocabs):
     original = tf.data.TextLineDataset(original)
 
     # batching
-    batch_size = 256 # multiple of 2: 2, 4, 8, 16, 32, 64
+    batch_size = Constant.BATCH_SIZE # multiple of 2: 2, 4, 8, 16, 32, 64
     modern = modern.batch(batch_size)
     original = original.batch(batch_size)
 
@@ -181,15 +182,22 @@ print(model.summary())
 def name_model(epochs,type_of_model,learning_rate,loss_function, loss_value, val_value):
     return f' model is {type_of_model} the epochs {epochs}  learning_rate {learning_rate} ' \
            f'lost function is {loss_function}  model loss is {loss_value}  model validation loss  {val_value}'
-
+def name_model(epochs,type_of_model,learning_rate,loss_function):
+    return f' model is {type_of_model} the epochs {epochs}  learning_rate {learning_rate} ' \
+           f'lost function is {loss_function}'
 """# Hyperparameters"""
 
-learning_rate = 0.01 # 0.0001, 0.00xxx1
+learning_rate = Constant.LEARNING_RATE # 0.0001, 0.00xxx1
 optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
 loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True)
 metrics = [] # BLEU
 model.compile(optimizer = optimizer, loss = loss, metrics = metrics)
-
+"""Nameing the tensorboad
+"""
+type_of_model = "seq_seq"
+loss_function = "Sparse_Categorigical_Crossentropy"
+NAME = name_model(Constant.EPOCHS,type_of_model,learning_rate,loss_function)
+NAME = NAME.format(datetime.datetime.now())
 """# Tranining
 
 """
@@ -199,14 +207,12 @@ history = History()
 logs = Callback()
 csv_logger = CSVLogger('training.log')
 tensorboard  = TensorBoard(log_dir="logs/{}".format(NAME))
-epochs = 1
+epochs = Constant.EPOCHS
 model.fit(train_dataset, validation_data = val_dataset, epochs = epochs, verbose = 1, callbacks=[history,csv_logger,tensorboard])
 
 
 """## Save model"""
 
-type_of_model = "seq_seq"
-loss_function = "Sparse_Categorigical_Crossentropy"
 size = len(history.history['loss'])
 model_loss = history.history['loss'][size-1]
 model_loss_formated = format(model_loss,".5f")
