@@ -195,8 +195,7 @@ model.compile(optimizer = optimizer, loss = loss, metrics = metrics)
 type_of_model = "seq_seq"
 loss_function = "Sparse_Categorigical_Crossentropy"
 NAME = name_model(Constant.EPOCHS,type_of_model,learning_rate,loss_function)
-NAME = NAME+' '+format(datetime.datetime.now())
-NAME = NAME.replace(":","_")
+NAME = NAME.format(datetime.datetime.now())
 """# Tranining
 
 """
@@ -247,4 +246,3 @@ dir(history.history.keys())
 print(history.history.keys())
 print(history.history['loss'])
 print(history.history['loss'][size-1])
-
