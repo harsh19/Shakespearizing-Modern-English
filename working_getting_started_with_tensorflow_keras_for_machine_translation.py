@@ -18,8 +18,10 @@ import datetime
 from tensorflow.keras.callbacks import TensorBoard
 import time
 import Constant
-import moveFolder
+import manipulateFolder 
 import zipfile
+from tensorflow import keras
+from tensorflow.keras.callbacks import Callback, History, CSVLogger
 NAME =""
 
 """# Data"""
@@ -199,8 +201,6 @@ csv_Name = NAME+".log"
 """# Tranining
 
 """
-from tensorflow import keras
-from tensorflow.keras.callbacks import Callback, History, CSVLogger
 history = History()
 logs = Callback()
 csv_logger = CSVLogger(csv_Name)
@@ -223,15 +223,10 @@ model.save(location_of_folder+name_of_model)
 
 #move the csv file to the
 
-#moveFolder.moveFileIntoDir(csv_Name,location_of_folder+name_of_model)
-
-
-import os
-import zipfile
-
-
+# manipulateFolder.moveFileIntoDir(csv_Name,location_of_folder+name_of_model)
 
 
 '''model = tf.keras.load_model(path)
 model.predict(input)'''
+print(name_of_model)
 
