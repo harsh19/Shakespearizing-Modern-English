@@ -217,13 +217,12 @@ model_loss_formated = format(model_loss,".5f")
 model_validation_loss = history.history['val_loss'][size-1]
 model_validation_loss_formated = format(model_validation_loss,".5")
 name_of_model = NAME
-name_of_model_zip = name_of_model+".zip"
 location_of_folder = "/model/"
 model.save(location_of_folder+name_of_model)
 
 #move the csv file to the
 
-# manipulateFolder.moveFileIntoDir(csv_Name,location_of_folder+name_of_model)
+manipulateFolder.moveFileIntoDir(csv_Name,"csv")
 
 
 '''model = tf.keras.load_model(path)

@@ -17,7 +17,5 @@ def removeDirectory(directory):
     for x in the_dir:
         os.remove(x)
     os.remove(directory)
-#moveFileIntoDir("epoch","./models")
 
-removeDirectory("./models")
 
