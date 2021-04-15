@@ -19,6 +19,7 @@ from tensorflow.keras.callbacks import TensorBoard
 import time
 import Constant
 import moveFolder
+import zipfile
 NAME =""
 
 """# Data"""
@@ -148,10 +149,6 @@ val_original = 'data/valid.original.nltktok'
 
 val_dataset = load_data(val_modern, val_original, source_vocabs, target_vocabs)
 
-for sample in val_dataset:
-  print('modern', sample[0])
-  print('original', sample[1].shape)
-  break
 
 """# Model and Tensorboard"""
 
@@ -231,15 +228,7 @@ model.save(location_of_folder+name_of_model)
 
 import os
 import zipfile
-from tensorflow.python.keras.callbacks import CSVLogger
-def zipdir(path, ziph):
-    # ziph is zipfile handle
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            ziph.write(os.path.join(root, file))
-zipf = zipfile.ZipFile(name_of_model_zip, 'w', zipfile.ZIP_DEFLATED)
-zipdir("/content/"+name_of_model, zipf)
-zipf.close()
+
 
 
 
