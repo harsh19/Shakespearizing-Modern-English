@@ -18,6 +18,7 @@ import datetime
 from tensorflow.keras.callbacks import TensorBoard
 import time
 import Constant
+import moveFolder
 NAME =""
 
 """# Data"""
@@ -197,6 +198,7 @@ loss_function = "Sparse_Categorigical_Crossentropy"
 NAME = name_model(Constant.EPOCHS,type_of_model,learning_rate,loss_function)
 NAME = NAME+' '+format(datetime.datetime.now())
 NAME = NAME.replace(":","_")
+csv_Name = NAME+".log"
 """# Tranining
 
 """
@@ -204,7 +206,7 @@ from tensorflow import keras
 from tensorflow.keras.callbacks import Callback, History, CSVLogger
 history = History()
 logs = Callback()
-csv_logger = CSVLogger('training.log')
+csv_logger = CSVLogger(csv_Name)
 tensorboard  = TensorBoard(log_dir="logs/{}".format(NAME))
 epochs = Constant.EPOCHS
 model.fit(train_dataset, validation_data = val_dataset, epochs = epochs, verbose = 1, callbacks=[history,csv_logger,tensorboard])
@@ -221,7 +223,11 @@ name_of_model = NAME
 name_of_model_zip = name_of_model+".zip"
 location_of_folder = "/model/"
 model.save(location_of_folder+name_of_model)
-## move the training log csv into the model save directory
+
+#move the csv file to the
+
+#moveFolder.moveFileIntoDir(csv_Name,location_of_folder+name_of_model)
+
 
 import os
 import zipfile

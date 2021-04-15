@@ -1,0 +1,185 @@
+[33mcommit d25e8bf51be50d334608d4fb145b4a43c285f12f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: unknown <Rami.m.Ismael@gmail.com>
+Date:   Wed Apr 14 22:40:56 2021 -0500
+
+    Create a model program will now add a timestap but will not tell how good was the training
+
+[33mcommit ee77ed2282feb1e54bc539307f6d60c681cb12f0[m
+Author: unknown <Rami.m.Ismael@gmail.com>
+Date:   Wed Apr 14 22:26:50 2021 -0500
+
+    Created a constant varible
+
+[33mcommit a236280561f415397a48334ce6819afabbbec003[m
+Author: unknown <Rami.m.Ismael@gmail.com>
+Date:   Wed Apr 14 18:59:25 2021 -0500
+
+    Solve the an error in moveFolder python script
+
+[33mcommit 718007d86e153c9422cd0a61ed7429bf5bdd375f[m
+Author: unknown <Rami.m.Ismael@gmail.com>
+Date:   Wed Apr 14 18:52:56 2021 -0500
+
+    The program can use tensorboard
+
+[33mcommit 7256f7ea71fe475cf2a96789673946c56635d360[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: unknown <Rami.m.Ismael@gmail.com>
+Date:   Tue Apr 13 17:44:04 2021 -0500
+
+    move all the model folder into a model directory
+
+[33mcommit ec63695ac43d40c94c46166f27629a82de464ac6[m
+Author: unknown <Rami.m.Ismael@gmail.com>
+Date:   Tue Apr 13 17:42:16 2021 -0500
+
+    Create a python script that move model folder
+
+[33mcommit b670fe3c00653fa1271937b7f5381d8dd0b8ea26[m
+Author: unknown <Rami.m.Ismael@gmail.com>
+Date:   Tue Apr 13 14:43:39 2021 -0500
+
+    This is working
+
+[33mcommit 62d688f90d97e72db33819bd7a2cd796ac08e138[m
+Author: Rami <rami.m.ismael@gmail.com>
+Date:   Sat Apr 10 18:56:21 2021 -0500
+
+    having a working model
+
+[33mcommit e2669eadf12b59573847ac725ce6ce685eff528d[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Mon Sep 14 17:12:28 2020 -0700
+
+    Update README.md
+
+[33mcommit 55c707a6d0e0739b2883cd17b865e4b85a0718fe[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Thu Jul 4 00:50:17 2019 -0700
+
+    Update README.md
+
+[33mcommit cba756abce0e127be077b6789c0e1f822ac99e72[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Thu Jun 20 12:22:43 2019 -0700
+
+    Update README.md
+
+[33mcommit 3c9df2ec7c1315e29229f7934721d26aa6878c78[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Thu Jun 20 12:14:02 2019 -0700
+
+    Update README.md
+
+[33mcommit 32c34e069fe6a8f9f111440ecc101370b6fa4813[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Thu Jun 20 12:05:28 2019 -0700
+
+    Update README.md
+
+[33mcommit 89154bf2f981ea9448f84a38c84b3800bcd8a959[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Thu Jun 20 12:02:33 2019 -0700
+
+    Update README.md
+
+[33mcommit 33feffda86c942e1024fe74739204d0d95e20ca2[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Thu Jun 20 12:00:39 2019 -0700
+
+    Update README.md
+
+[33mcommit dd76eb2d11968e57d73eb910edc0e6ab3c823de7[m
+Author: Varun Gangal <vgtomahawk@gmail.com>
+Date:   Thu Jun 20 00:08:48 2019 -0700
+
+    Adding code-quotes around code-related bullet subspans in README
+
+[33mcommit 433ee69fa37d1e5a7e4d7c31ed327acbac13a1bd[m
+Author: Varun Gangal <vgtomahawk@gmail.com>
+Date:   Thu Jun 20 00:07:33 2019 -0700
+
+    README: Adding code-quotes around code-related bullet subspans
+
+[33mcommit d592fc10733b0d07d47f051a9e2a225f9e2ff609[m
+Author: Varun Gangal <vgtomahawk@gmail.com>
+Date:   Wed Jun 19 23:55:51 2019 -0700
+
+    Explicitly stating Python version in the README
+
+[33mcommit 9ce6f8687a427ee4a0e368ba437c2dc641a75e07[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Tue Oct 31 11:37:10 2017 -0400
+
+    Update README.md
+
+[33mcommit 55c84f84b6355a038a67d5ceb6a7079f49b975ad[m
+Author: vgtomahawk <vgtomahawk@gmail.com>
+Date:   Mon Aug 14 11:11:32 2017 -0400
+
+    Updated post-proces file with instructions; updated README with instructions for post processing actions
+
+[33mcommit d4d8c30e31f7bfbd5954799ac5c3ae70078d9998[m
+Author: vgtomahawk <vgtomahawk@gmail.com>
+Date:   Mon Aug 14 09:30:41 2017 -0400
+
+    Updated to print out alphas/ required for post processing/ updated post processor
+
+[33mcommit 997128ce347d1634ad0670102105cf960cd4f1b9[m
+Author: vgtomahawk <vgtomahawk@gmail.com>
+Date:   Sun Aug 13 10:34:31 2017 -0400
+
+    Print bug fix in mt_solver.py
+
+[33mcommit cf01ad8a614850b13b14a610487efebc43de6c50[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Tue Jul 25 16:24:29 2017 -0400
+
+    Model demo updates
+
+[33mcommit 811bde68187cc2bb4cb324103ce768c32108a577[m
+Author: Harsh Jhamtani <jharsh@compute-0-15.local>
+Date:   Thu Jul 20 18:19:46 2017 -0400
+
+    Updated model demo
+
+[33mcommit 2544d5eea60c651e36ad3ac5f74d2618f59ce1d9[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Wed Jul 19 14:39:57 2017 -0400
+
+    Added demo file: to get model output for arbitrary text
+
+[33mcommit f4129f229b8bb145c99d4d57bf11ea6dde6819b6[m
+Author: vgtomahawk <vgtomahawk@gmail.com>
+Date:   Tue Jul 11 12:09:18 2017 -0400
+
+    Update README.md
+
+[33mcommit 9284c49eeb75f40011de9311d023da8589e774b1[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Tue Jul 11 11:16:49 2017 -0400
+
+    Update README.md
+
+[33mcommit 827a923d488f722216a6b8eee73a11f0e4ad8468[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Mon Jul 10 23:43:33 2017 -0400
+
+    Update README.md
+
+[33mcommit 231448636f7811e4ad43117359835d7a7343c7ed[m
+Author: Harsh Jhamtani <jharsh@tir.lti.cs.cmu.edu>
+Date:   Mon Jul 10 23:05:49 2017 -0400
+
+    Added code and data sets
+
+[33mcommit e04017415c0ca33e5573684946297068ff9392e5[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Tue Jul 4 13:04:02 2017 -0400
+
+    Update README.md
+
+[33mcommit c0a5eb846a896001e830cba063d0d094fbc5e9c2[m
+Author: Harsh Jhamtani <harshjhamtani@gmail.com>
+Date:   Tue Jul 4 13:03:27 2017 -0400
+
+    Initial commit
