@@ -182,7 +182,6 @@ def model_bidirectional(source_vocab_size, target_vocab_size, sequence_length):
   biRNN = tf.keras.layers.Bidirectional(256,return_sequences = True, name = 'BiRNN_1',activation="tanh", recurrent_activation="sigmoid", recurrent_dropout=0.0,unroll=False,use_bias=True)(input)
   biRNN = tf.keras.layers.Bidirectional(256,return_sequences = True, name = 'BiRNN_1',activation="tanh", recurrent_activation="sigmoid", recurrent_dropout=0.0,unroll=False,use_bias=True)(biRNN)
   #output
-
 model = model_fn(len(source_vocabs), len(target_vocabs), sequence_length = 50)
 print(model.summary())
 
