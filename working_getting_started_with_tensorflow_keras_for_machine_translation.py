@@ -21,7 +21,7 @@ import Constant
 import manipulateFolder 
 import zipfile
 from tensorflow import keras
-from tensorflow.keras.callbacks import Callback, History, CSVLogger
+from tensorflow.keras.callbacks import Callback, History, CSVLogger, EarlyStopping
 NAME =""
 
 """# Data"""
