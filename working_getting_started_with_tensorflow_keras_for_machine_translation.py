@@ -174,6 +174,14 @@ def model_fn(source_vocab_size, target_vocab_size, sequence_length):
   output = tf.keras.layers.Dense(target_vocab_size)(lstm)
 
   return tf.keras.Model(inputs = [input], outputs = [output])
+def model_bidirectional(source_vocab_size, target_vocab_size, sequence_length):
+  #input
+  input = tf.keras.Input(shape=(sequence_length))
+  
+  ##BidrectionalRNNS
+  biRNN = tf.keras.layers.Bidirectional(256,return_sequences = True, name = 'BiRNN_1',activation="tanh", recurrent_activation="sigmoid", recurrent_dropout=0.0,unroll=False,use_bias=True)(input)
+  biRNN = tf.keras.layers.Bidirectional(256,return_sequences = True, name = 'BiRNN_1',activation="tanh", recurrent_activation="sigmoid", recurrent_dropout=0.0,unroll=False,use_bias=True)(biRNN)
+  #output
 
 model = model_fn(len(source_vocabs), len(target_vocabs), sequence_length = 50)
 print(model.summary())
@@ -199,17 +207,15 @@ class EarlyStoppingAtMinLoss(keras.callbacks.Callback):
         # best_weights to store the weights at which the minimum loss occurs.
         self.best_weights = None
 
-    def on_train_begin(self, logs=None):
-        # The number of epoch it has waited when loss is no longer minimum.
-        self.wait = 0
-        # The epoch the training stops at.
-        self.stopped_epoch = 0
-        # Initialize the best as infinity.
-        self.best = np.Inf
 
     def on_epoch_end(self, epoch, logs=None):
-        current = logs.get("loss")
-        if np.less(current, self.best):
+        current_loss = logs.get("loss")
+        current_validation_lost = logs.get("val_loss")
+        if(current_loss<current_validation_lost):
+          print("stop")
+          self.model.stop_training=True
+          self.stopped_epoch=epoch
+        '''if np.less(current, self.best):
             self.best = current
             self.wait = 0
             # Record the best weights if current results is better (less).
@@ -220,7 +226,7 @@ class EarlyStoppingAtMinLoss(keras.callbacks.Callback):
                 self.stopped_epoch = epoch
                 self.model.stop_training = True
                 print("Restoring model weights from the end of the best epoch.")
-                self.model.set_weights(self.best_weights)
+                self.model.set_weights(self.best_weights)'''
 
     def on_train_end(self, logs=None):
         if self.stopped_epoch > 0:
