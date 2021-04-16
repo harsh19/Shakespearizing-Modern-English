@@ -228,4 +228,5 @@ manipulateFolder.moveFileIntoDir(csv_Name,"csv")
 '''model = tf.keras.load_model(path)
 model.predict(input)'''
 print(name_of_model)
+print("The model lost "+str(model_loss)+ "The validation lost "+str(model_validation_loss))
 
